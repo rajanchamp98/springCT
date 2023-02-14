@@ -1,32 +1,31 @@
-const Name=document.getElementById("name");
-const email=document.getElementById("email");
-const password=document.getElementById("password");
-const feedback=document.getElementById("feedback");
-const gender=document.getElementById("gender");
 
+let namee=document.getElementById("name");
+let email=document.getElementById("email");
+let password=document.getElementById("password");
+let feedback=document.getElementById("feedback");
+let gender=document.getElementById("gender");
+const btn=document.getElementById("btn");
 
-let nameData=[]
-let emailData=[]
-let passwordData=[]
-let feedbackData=[]
-let genderData=[]
-
-
-
-const submiting=()=>{
-    nameData.push(Name.value);
-    emailData.push(email.value);
-    passwordData.push(password.value);
-    feedbackData.push(feedback.value);
-    genderData.push(gender.value);
-
-
-    localStorage.setItem("Name",JSON.stringify(nameData));
-    localStorage.setItem("email",JSON.stringify(emailData));
-    localStorage.setItem("password",JSON.stringify(passwordData));
-    localStorage.setItem("feedback",JSON.stringify(feedbackData));
-    localStorage.setItem("gender",JSON.stringify(genderData));
-  
-    alert("Data Saved Sucessfully")
-    
-};
+btn.addEventListener("click",()=>{
+    var dataList=[];
+    if(localStorage.getItem("dataList") == null){
+        dataList=[];
+    }
+    else{
+        dataList=JSON.parse(localStorage.getItem("dataList"));
+    }
+    dataList.push({
+        Name:namee.value,
+        email:email.value,
+        password:password.value,
+        feedback:feedback.value,
+        gender:gender.value
+    })
+    localStorage.setItem("dataList",JSON.stringify(dataList));
+    alert("data Saved Successfully")
+    namee.value="";
+    email.value="";
+    password.value="";
+    feedback.value="";
+    gender.value="";
+})
