@@ -3,7 +3,7 @@ const email=document.getElementById("email");
 const password=document.getElementById("password");
 const feedback=document.getElementById("feedback");
 const gender=document.getElementById("gender");
-const form=document.getElementById("form");
+
 
 let nameData=[]
 let emailData=[]
@@ -11,9 +11,9 @@ let passwordData=[]
 let feedbackData=[]
 let genderData=[]
 
-const btn=document.getElementById("btn");
 
-btn.addEventListener("click",()=>{
+
+const submiting=()=>{
     nameData.push(Name.value);
     emailData.push(email.value);
     passwordData.push(password.value);
@@ -29,4 +29,4 @@ btn.addEventListener("click",()=>{
   
     alert("Data Saved Sucessfully")
     
-})
+};
